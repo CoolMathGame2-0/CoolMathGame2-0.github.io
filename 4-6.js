@@ -64,7 +64,7 @@ var nombreDeBonneReponse = 0;
 var toutQuestionBonneBesoin = 0;
 var sumbittedReponse = 0;
 var t1;
-var cocherTout= 0;
+var cocherTout = 0;
 
 // nombre de questions choisit
 function nombreDeQuestion(numDeChoix) {
@@ -143,11 +143,11 @@ function randomQuestionFunction() {
 // fonction pour l'Addition
 function addition() {
   // définit le premier nombre a un chiffre hazard de 0 a 25
-  var nombre1A = Math.floor(Math.random() * 25)+2;
+  var nombre1A = Math.floor(Math.random() * 25) + 2;
   // définit le deuxième nombre a un chiffre hazard de 0 a 25
-  var nombre2A = Math.floor(Math.random() * 25)+2;
+  var nombre2A = Math.floor(Math.random() * 25) + 2;
   // définit le troisième nombre a un chiffre hazard de 0 a 25
-  var nombre3A = Math.floor(Math.random() * 25)+2;
+  var nombre3A = Math.floor(Math.random() * 25) + 2;
   // définit le total a tout les trois nombres ensembles
   total = (nombre1A + nombre2A + nombre3A)
   // console log le total pour verifié si la fonction marche
@@ -190,22 +190,22 @@ function division() {
   var nombre1D = Math.round(Math.random() * 144 / 2) * 2;
   // définit le deuxième nombre a un chiffre hazard du premier
   // nombre divisé par 3 foi un nombre inconnue + 1
-  var nombre2D = Math.round((nombre1D ) * Math.random()) ;
+  var nombre2D = Math.round((nombre1D) * Math.random());
   // loop while qui fait que si le total n'est pas un entier 
   // donner une autre réponse jusqu'a que la reponse l'est
-  
+
   while ((nombre1D % nombre2D) !== 0) {
     if (nombre2D > (nombre1D / 2)) {
       nombre2D--
-    } else  {
+    } else {
       nombre2D++
     }
 
   }
   total = nombre1D / nombre2D;
   console.log(total)
-  if (total !== 2 && total !== nombre1D && nombre2D !== 1 && nombre2D !== nombre1D){
-  document.getElementById("questionDiv").innerHTML = nombre1D + "/" + nombre2D + " = ";
+  if (total !== 2 && total !== nombre1D && nombre2D !== 1 && nombre2D !== nombre1D) {
+    document.getElementById("questionDiv").innerHTML = nombre1D + "/" + nombre2D + " = ";
   } else {
     division()
   }
@@ -243,10 +243,10 @@ function plusUnEssai() {
 function checkReponse() {
   if (sumbittedReponse.value == total) {
     nombreDeBonneReponse += 1;
-    document.getElementById("montreNombreDeBonneReponse").innerHTML= nombreDeBonneReponse;
-    document.getElementById("pasBonneReponse").innerHTML= "Bonne reponse !!";
-  } else if (sumbittedReponse.value !=total){
-    document.getElementById("pasBonneReponse").innerHTML= "❌ mauvaise reponse";
+    document.getElementById("montreNombreDeBonneReponse").innerHTML = nombreDeBonneReponse;
+    document.getElementById("pasBonneReponse").innerHTML = "✅Bonne reponse✅";
+  } else if (sumbittedReponse.value != total) {
+    document.getElementById("pasBonneReponse").innerHTML = "❌ mauvaise reponse❌";
   }
 }
 // la fonction qui arrete de demander des questions a la personne
@@ -257,13 +257,13 @@ function arreteQuestion() {
   if (nombreDeBonneReponse >= toutQuestionBonneBesoin) {
     body3()
     var t2 = performance.now();
-    var temp = ((t2-t1)/1000);
-    document.getElementById("demontreTemp").innerHTML= "Temps: " + 
-    temp.toFixed(2) + 
-    " secondes<br> Nombre d'essais:  " + 
-    nombreDeEssai + 
-    "<br> Nombre de mauvais reponse: " + 
-    (nombreDeEssai - toutQuestionBonneBesoin);
+    var temp = ((t2 - t1) / 1000);
+    document.getElementById("demontreTemp").innerHTML = "Temps: " +
+      temp.toFixed(2) +
+      " secondes<br> Nombre d'essais:  " +
+      nombreDeEssai +
+      "<br> Nombre de mauvais reponse: " +
+      (nombreDeEssai - toutQuestionBonneBesoin);
     // si le nombre de reponse est plus petit que le nombre de questions
     // choisit, demande une autre question
   } else if (nombreDeBonneReponse < toutQuestionBonneBesoin) {
@@ -271,48 +271,53 @@ function arreteQuestion() {
     sumbittedReponse.value = ``;
   }
 }
+//montre les input pour renter nombre
+function demontreBouton(){
+  document.getElementById("quantity").style.display = "inline";
+  document.getElementById("submit").style.display = "inline";
+}
 
 
 //tout le code HTML pour le premier body après le page titre
 function body1() {
   cocherTout = 0;
-  for (var y = 0; y < 4; y++ ){
-    if (tableDeChoix[y] !== 1){
+  for (var y = 0; y < 4; y++) {
+    if (tableDeChoix[y] !== 1) {
       cocherTout++;
       console.log(cocherTout)
     }
   }
-  if (cocherTout !== 4){
-  document.getElementById("delBody").innerHTML =
-    "<h1>À combien de questions voulez-vous répondre?</h1> " +
-    "<form>" +
-    "<input type='button' id='numDeQust5' onclick='body2(), nombreDeQuestion(5)' value='5'/>" +
-    "<input type='button' id='numDeQust10' onclick='body2(), nombreDeQuestion(10)' value='10'/>" +
-    "<input type='button' id='numDeQust15' onclick='body2(), nombreDeQuestion(15)' value='15'/>" +
-    "</form>" +
-    "<a id='PagePrecedente' href='4-6.html'> Page precedent</a>"
+  if (cocherTout !== 4) {
+    document.getElementById("delBody").innerHTML =
+      "<h1>À combien de questions voulez-vous répondre?</h1> " +
+      "<form>" +
+      "<input type='button' id='numDeQust5' onclick='body2(), nombreDeQuestion(5)' value='5'/>" +
+      "<input type='button' id='numDeQust10' onclick='body2(), nombreDeQuestion(10)' value='10'/>" +
+      "<input type='button' id='numDeQust15' onclick='body2(), nombreDeQuestion(15)' value='15'/>" +
+      "</form>" +
+      "<a id='PagePrecedente' href='4-6.html'> Page precedent</a>"
   }
-  
+
 }
 
 //tout le body HTML qui définit le jeux 
 function body2() {
-  
+
   document.getElementById("delBody").innerHTML =
-    "<input type='button' value='Commence'  id='Commence' onclick=' start(), randomQuestionFunction()' > " +
+    "<input type='button' value='Commence'  id='Commence' onclick=' start(), randomQuestionFunction(),demontreBouton()' > " +
     "<div id='questionDiv'> </div>" +
     "<input type='number' id='quantity' name='quantity' min='0'>" +
-    "<input type='submit'id='submit' value='entrée' onclick='plusUnEssai(),valueDeInput(), checkReponse(),arreteQuestion()'> " + 
+    "<input type='submit'id='submit' value='entrée' onclick='plusUnEssai(),valueDeInput(), checkReponse(),arreteQuestion()'> " +
     "<div id='montreNombreDeBonneReponse'></div>" +
     "<div id='pasBonneReponse'></div>"
-  
+
 }
 
 
 //tout le body HTML qui lit a ce qui a faire avec le fin du jeu
 function body3() {
   document.getElementById("delBody").innerHTML = "<a id='RetourAccueil' href='index.html'> Retour à l'accueil </a>" +
-    "<a id='RecommencerJeux' href='4-6.html'> Recommencer le jeux</a>" +
+    "<a id='recommencerJeux' href='4-6.html'> Recommencer le jeux</a>" +
     "<div id='demontreTemp'></div>"
 }
 //commence

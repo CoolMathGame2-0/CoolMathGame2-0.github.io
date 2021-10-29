@@ -44,7 +44,7 @@ var nombreDeBonneReponse = 0;
 var toutQuestionBonneBesoin = 0;
 var sumbittedReponse = 0;
 var t1;
-var cocherTout= 0;
+var cocherTout = 0;
 
 // nombre de questions choisit
 function nombreDeQuestion(numDeChoix) {
@@ -92,7 +92,7 @@ function randomQuestionFunction() {
         quelMath = tableDeChoix[0] * randomQuestion
       } else if (randomQuestion === 2) {
         quelMath = tableDeChoix[1] * randomQuestion;
-      } 
+      }
       loopInf += 1;
       console.log("loop " + loopInf);
     }
@@ -103,9 +103,9 @@ function randomQuestionFunction() {
 // fonction pour l'Addition
 function addition() {
   // définit le premier nombre a un chiffre hazard de 0 a 25
-  var nombre1A = Math.floor(Math.random() * 15)+10;
+  var nombre1A = Math.floor(Math.random() * 15) + 10;
   // définit le deuxième nombre a un chiffre hazard de 0 a 25
-  var nombre2A = Math.floor(Math.random() * 15)+10;
+  var nombre2A = Math.floor(Math.random() * 15) + 10;
   total = (nombre1A + nombre2A)
   // console log le total pour verifié si la fonction marche
   console.log(total)
@@ -130,7 +130,7 @@ function soustraction() {
 
 
 
-  
+
 
 // fonction qui laisse la personne commencer le jeux
 function start() {
@@ -164,10 +164,10 @@ function plusUnEssai() {
 function checkReponse() {
   if (sumbittedReponse.value == total) {
     nombreDeBonneReponse += 1;
-    document.getElementById("montreNombreDeBonneReponse").innerHTML= nombreDeBonneReponse;
-    document.getElementById("pasBonneReponse").innerHTML= "Bonne reponse !!";
-  } else if (sumbittedReponse.value !=total){
-    document.getElementById("pasBonneReponse").innerHTML= "❌";
+    document.getElementById("montreNombreDeBonneReponse").innerHTML = nombreDeBonneReponse;
+    document.getElementById("pasBonneReponse").innerHTML = "✅Bonne reponse✅";
+  } else if (sumbittedReponse.value != total) {
+    document.getElementById("pasBonneReponse").innerHTML = "❌Mauvaise reponse❌";
   }
 }
 // la fonction qui arrete de demander des questions a la personne
@@ -178,13 +178,13 @@ function arreteQuestion() {
   if (nombreDeBonneReponse >= toutQuestionBonneBesoin) {
     body3()
     var t2 = performance.now();
-    var temp = ((t2-t1)/1000);
-    document.getElementById("demontreTemp").innerHTML= "Temps: " + 
-    temp.toFixed(2) + 
-    " secondes<br> Nombre d'essais:  " + 
-    nombreDeEssai + 
-    "<br> Nombre de mauvais reponse: " + 
-    (nombreDeEssai - toutQuestionBonneBesoin);
+    var temp = ((t2 - t1) / 1000);
+    document.getElementById("demontreTemp").innerHTML = "Temps: " +
+      temp.toFixed(2) +
+      " secondes<br> Nombre d'essais:  " +
+      nombreDeEssai +
+      "<br> Nombre de mauvais reponse: " +
+      (nombreDeEssai - toutQuestionBonneBesoin);
     // si le nombre de reponse est plus petit que le nombre de questions
     // choisit, demande une autre question
   } else if (nombreDeBonneReponse < toutQuestionBonneBesoin) {
@@ -193,40 +193,45 @@ function arreteQuestion() {
   }
 }
 
+//montre les input pour renter nombre
+function demontreBouton(){
+  document.getElementById("quantity").style.display = "inline";
+  document.getElementById("submit").style.display = "inline";
+}
 
 //tout le code HTML pour le premier body après le page titre
 function body1() {
   cocherTout = 0;
-  for (var y = 0; y < 2; y++ ){
-    if (tableDeChoix[y] !== 1){
+  for (var y = 0; y < 2; y++) {
+    if (tableDeChoix[y] !== 1) {
       cocherTout++;
       console.log(cocherTout)
     }
   }
-  if (cocherTout !== 2){
-  document.getElementById("delBody").innerHTML =
-    "<h1>À combien de questions voulez-vous répondre?</h1> " +
-    "<form>" +
-    "<input type='button' id='numDeQust5' onclick='body2(), nombreDeQuestion(5)' value='5'/>" +
-    "<input type='button' id='numDeQust10' onclick='body2(), nombreDeQuestion(10)' value='10'/>" +
-    "<input type='button' id='numDeQust15' onclick='body2(), nombreDeQuestion(15)' value='15'/>" +
-    "</form>" +
-    "<a id='PagePrecedente' href='4-6.html'> Page precedent</a>"
+  if (cocherTout !== 2) {
+    document.getElementById("delBody").innerHTML =
+      "<h1>À combien de questions voulez-vous répondre?</h1> " +
+      "<form>" +
+      "<input type='button' id='numDeQust5' onclick='body2(), nombreDeQuestion(5)' value='5'/>" +
+      "<input type='button' id='numDeQust10' onclick='body2(), nombreDeQuestion(10)' value='10'/>" +
+      "<input type='button' id='numDeQust15' onclick='body2(), nombreDeQuestion(15)' value='15'/>" +
+      "</form>" +
+      "<a id='PagePrecedente' href='4-6.html'> Page precedent</a>"
   }
-  
+
 }
 
 //tout le body HTML qui définit le jeux 
 function body2() {
-  
+
   document.getElementById("delBody").innerHTML =
-    "<input type='button' value='Commence'  id='Commence' onclick=' start(), randomQuestionFunction()' > " +
+    "<input type='button' value='Commence'  id='Commence' onclick=' start(), randomQuestionFunction(), demontreBouton()' > " +
     "<div id='questionDiv'> </div>" +
     "<input type='number' id='quantity' name='quantity' min='0'>" +
-    "<input type='submit'id='submit' value='entrée' onclick='plusUnEssai(),valueDeInput(), checkReponse(),arreteQuestion()'> " + 
+    "<input type='submit'id='submit' value='entrée' onclick='plusUnEssai(),valueDeInput(), checkReponse(),arreteQuestion()'> " +
     "<div id='montreNombreDeBonneReponse'></div>" +
     "<div id='pasBonneReponse'></div>"
-  
+
 }
 
 

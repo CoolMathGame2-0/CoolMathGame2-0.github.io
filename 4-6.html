@@ -1,18 +1,20 @@
 <html>
 
-  <head>
-    <meta name="viewport" content="width=device-width">
-    <!-- titre du site web -->
-    <title>Cool Math Game</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="4-6.js"></script>
-  </head>
-  <!-- l'id du body est pour l'effacer apres qu'il a finit
+<head>
+	<meta name="viewport" content="width=device-width">
+	<!-- titre du site web -->
+	<title>Cool Math Game</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="4-6.js">
+
+	</script>
+</head>
+<!-- l'id du body est pour l'effacer apres qu'il a finit
         de faire le programme -->
 
-  <body id="delBody">
-    <!-- text qui leur demande leur choix -->
-    <h1><strong>Quelles opérations voulez-vous faire:</strong></h1>
+<body id="delBody">
+	<!-- text qui leur demande leur choix -->
+	<h1><strong>Quelles opérations voulez-vous faire:</strong></h1>
     
       <!-- option 1: addition -->
     <div style='font-size: 150%; font-family: "Lucida Console", monospace;'>
@@ -28,7 +30,7 @@
       <input type="checkbox" id="division" name="calculs"/>Division<br>
 
       <!-- boutton pour continuer à la prochaine page -->
-      <input type="button" onclick = "trouverQuelMath(), body1()" value="Soumettre les choix"/>
+      <input type="button" id="soumettreChoix" onclick = "trouverQuelMath(), body1()" value="Soumettre les choix"/>
     </div>
     <!-- Boutton qui donne l'option de retourner a l'accueil
          si la personne le veut -->
