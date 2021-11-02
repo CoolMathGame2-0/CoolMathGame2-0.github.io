@@ -147,7 +147,7 @@ function addition() {
   // définit le deuxième nombre a un chiffre hazard de 0 a 25
   var nombre2A = Math.floor(Math.random() * 25) + 2;
   // définit le troisième nombre a un chiffre hazard de 0 a 25
-  var nombre3A = Math.floor(Math.random() * 25) + 2;
+  var nombre3A = Math.floor(Math.random() * 10) + 2;
   // définit le total a tout les trois nombres ensembles
   total = (nombre1A + nombre2A + nombre3A)
   // console log le total pour verifié si la fonction marche
@@ -159,7 +159,7 @@ function addition() {
 // fonction pour la Soustraction
 function soustraction() {
   // définit le premier nombre a un chiffre hazard de 50 a 150
-  var nombre1S = Math.floor(Math.random() * 100) + 50;
+  var nombre1S = Math.floor(Math.random() * 50) + 50;
   // définit le deuxième nombre a un chiffre plus petit que le premier
   var nombre2S = Math.floor(Math.random() * nombre1S);
   // met le total a la reponse du 1er nombre - le 2e nombre
@@ -173,9 +173,9 @@ function soustraction() {
 // fonction pour la Multiplication
 function multiplication() {
   // définit le premier nombre a un chiffre hazard de 2 a 16
-  var nombre1M = Math.floor(Math.random() * 14) + 2;
+  var nombre1M = Math.floor(Math.random() * 10) + 2;
   // définit le deuxième nombre a un chiffre hazard de 2 a 16
-  var nombre2M = Math.floor(Math.random() * 14) + 2;
+  var nombre2M = Math.floor(Math.random() * 10) + 2;
   // met le total a la reponse du 1er nombre * le 2e nombre
   total = (nombre1M * nombre2M)
   // console log le total pour verification
@@ -204,6 +204,7 @@ function division() {
   }
   total = nombre1D / nombre2D;
   console.log(total)
+  // si le totale egale a 2, 1, les deuxième nombre, ou le premmier nombre  on Recommence la fonction division
   if (total !== 2 && total !== nombre1D && nombre2D !== 1 && nombre2D !== nombre1D) {
     document.getElementById("questionDiv").innerHTML = nombre1D + "/" + nombre2D + " = ";
   } else {
@@ -235,7 +236,7 @@ function plusUnEssai() {
   // ajoute 1 a nombre d'essay
   nombreDeEssai += 1;
   // verification pour voir le nombre d'essay prises totals
-  console.log("nombre de essai: " + nombreDeEssai);
+  console.log("nombre d'essais: " + nombreDeEssai);
 }
 
 // trouver si la reponse donner est la bonne reponse et done un point si 
@@ -244,16 +245,18 @@ function checkReponse() {
   if (sumbittedReponse.value == total) {
     nombreDeBonneReponse += 1;
     document.getElementById("montreNombreDeBonneReponse").innerHTML = nombreDeBonneReponse;
-    document.getElementById("pasBonneReponse").innerHTML = "✅Bonne reponse✅";
+    document.getElementById("pasBonneReponse").innerHTML = "✅Bonne réponse✅";
+    document.getElementById("montreNombreDeBonneReponse").style.background = "rgb(97, 235, 52)";
   } else if (sumbittedReponse.value != total) {
-    document.getElementById("pasBonneReponse").innerHTML = "❌ mauvaise reponse❌";
+    document.getElementById("pasBonneReponse").innerHTML = "❌ Mauvaise réponse❌";
+    document.getElementById("montreNombreDeBonneReponse").style.background = "rgb(217, 52, 52)";
   }
 }
 // la fonction qui arrete de demander des questions a la personne
 // dès qu'ils répondent a le nombre chioisit de qustions correctement
 function arreteQuestion() {
   // si le nombre de reponse est = ou plus grand que le nombre de 
-  // qustions choisit, arrête le chronomètre
+  // qustions choisit, arrête le chronomètre et demontre le score
   if (nombreDeBonneReponse >= toutQuestionBonneBesoin) {
     body3()
     var t2 = performance.now();
@@ -262,7 +265,7 @@ function arreteQuestion() {
       temp.toFixed(2) +
       " secondes<br> Nombre d'essais:  " +
       nombreDeEssai +
-      "<br> Nombre de mauvais reponse: " +
+      "<br> Nombre de mauvaises réponses: " +
       (nombreDeEssai - toutQuestionBonneBesoin);
     // si le nombre de reponse est plus petit que le nombre de questions
     // choisit, demande une autre question
@@ -272,14 +275,16 @@ function arreteQuestion() {
   }
 }
 //montre les input pour renter nombre
-function demontreBouton(){
+function demontreBouton() {
   document.getElementById("quantity").style.display = "inline";
-  document.getElementById("submit").style.display = "inline";
+  document.getElementById("submit").style.display = "inline-block";
+  document.getElementById("montreNombreDeBonneReponse").style.background = "rgba(39, 93, 243, 0.281)";
+  document.getElementById("montreNombreDeBonneReponse").style.border = "2px solid black";
 }
-
 
 //tout le code HTML pour le premier body après le page titre
 function body1() {
+  //loup qui trouve si tout lex checkbox son pas checker et arrete de aller au prochain si il y a aucun 
   cocherTout = 0;
   for (var y = 0; y < 4; y++) {
     if (tableDeChoix[y] !== 1) {
@@ -295,7 +300,7 @@ function body1() {
       "<input type='button' id='numDeQust10' onclick='body2(), nombreDeQuestion(10)' value='10'/>" +
       "<input type='button' id='numDeQust15' onclick='body2(), nombreDeQuestion(15)' value='15'/>" +
       "</form>" +
-      "<a id='PagePrecedente' href='4-6.html'> Page precedent</a>"
+      "<a id='PagePrecedente' href='4-6.html'> Page précedente</a>"
   }
 
 }
@@ -304,14 +309,16 @@ function body1() {
 function body2() {
 
   document.getElementById("delBody").innerHTML =
-    "<input type='button' value='Commence'  id='Commence' onclick=' start(), randomQuestionFunction(),demontreBouton()' > " +
-    "<div id='questionDiv'> </div>" +
+    "<input type='button' value='Commence'  id='Commence' onclick=' start(), randomQuestionFunction(), demontreBouton()' > " +
+
+    "<div id='jeux'><div id='questionDiv'> </div>" +
     "<input type='number' id='quantity' name='quantity' min='0'>" +
-    "<input type='submit'id='submit' value='entrée' onclick='plusUnEssai(),valueDeInput(), checkReponse(),arreteQuestion()'> " +
+    "<input type='submit'id='submit' value='entrée' onclick='plusUnEssai(), valueDeInput(), checkReponse(),arreteQuestion()'></div>" +
     "<div id='montreNombreDeBonneReponse'></div>" +
     "<div id='pasBonneReponse'></div>"
 
 }
+
 
 
 //tout le body HTML qui lit a ce qui a faire avec le fin du jeu

@@ -14,8 +14,8 @@ h3{
 /* le boutton des année 1 a 3 */
 #boutton1-3{
   /* définit la position de la boite pour qu'elle soit de bonne taille */
-  margin-left: -3%;
-  margin-top: 50px;
+  margin-left: -6%;
+  margin-top: 25px;
   position: fixed;
   /* change le text de la boite */
   font: bold 20px Arial;
@@ -24,9 +24,11 @@ h3{
   background-color: rgba(255, 238, 0, 0.568);
   color: #000000;
   /* les transitions et le padding de la boite */
-  padding: 2px 6px 2px 6px;
+  padding: 12px 30px 15px 30px;
   border: 2px solid black;
   transition: transform .2s;
+  border-spacing: 20px;
+  float: left 50%;
 }
 /* fait le boutton aggrendire du size normale x 1.5 */
 #boutton1-3:hover{
@@ -35,8 +37,8 @@ h3{
 /* le boutton des année 4 a 6 */
 #boutton4-6{
   /* définit la position de la boite pour qu'elle soit de bonne taille */
-  margin-left: -3%;
-  margin-top: 100px;
+  margin-left: -6%;
+  margin-top: 75px;
   position: fixed;
   /* change le text de la boite */
   font: bold 20px Arial;
@@ -45,9 +47,11 @@ h3{
   background-color: rgba(39, 93, 243, 0.281);
   color: #000000;
   /* les transitions et le padding de la boite */
-  padding: 2px 6px 2px 6px;
+  padding: 12px 30px 12px 30px;
   border: 2px solid black;
   transition: transform .2s;
+  border-spacing: 20px;
+  float: left 50%;
 }
 /* fait le boutton aggrendir du size normale x 1.5 */
 #boutton4-6:hover{
@@ -57,8 +61,8 @@ h3{
 /* le boutton des années 7 et 8 */
 #boutton7-8{
   /* définit la position de la boite pour qu'elle soit de bonne taille */
-  margin-left: -3%;
-  margin-top: 150px;
+  margin-left: -6%;
+  margin-top: 122px;
   position: fixed;
   /* change le text de la boite */
   font: bold 20px Arial;
@@ -67,9 +71,11 @@ h3{
   background-color: rgba(253, 4, 4, 0.589);
   color: #000000;
   /* les transitions et le padding de la boite */
-  padding: 2px 6px 2px 6px;
+  padding: 12px 30px 12px 30px;
   border: 2px solid black;
   transition: transform .2s;
+  border-spacing: 20px;
+  float: left 50%;
 }
 /* fait le boutton aggrendire du size normale x 1.5 */
 #boutton7-8:hover{
@@ -164,17 +170,16 @@ input[type='checkbox']:checked:after{
 /* bouttons pour commencer */
 #Commence {
   /* définit la position de la boite pour qu'elle soit de bonne taille */
-  margin-left: -6%;
+  margin-left: -14.5%;
   margin-top: 300px;
   position: fixed;
   cursor: pointer;
   /* change le text de la boite */
-  font: 40px Jazz LET, fantasy;
+  font: 90px Jazz LET, fantasy;
   text-decoration: none;
   /* change la couleur de la boite */
-  color: grey;
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); 
+  color: rgb(255, 255, 255);
+  background: rgb(70, 86, 224);; 
   /* les transitions et le padding de la boite */
   padding: 2px 6px 2px 6px;
   border: 2px solid black;
@@ -187,7 +192,7 @@ input[type='checkbox']:checked:after{
 /* code qui met le boutton pour rettourner a l'acceuille */
 #RetourAccueil{
   /* définit la position de la boite pour qu'elle soit de bonne taille */
-  margin-left: -48%;
+  left: 5%;
   position: fixed;
   bottom: 2%;
   cursor: pointer;
@@ -198,7 +203,7 @@ input[type='checkbox']:checked:after{
   background-color: rgba(0, 209, 17, 0.568);
   color: #000000;
   /* les transitions et le padding de la boite */
-  padding: 2px 6px 2px 6px;
+  padding: 15px 30px 15px 30px;
   border: 2px solid black;
 }
 /* boutton pour reccommencer */
@@ -232,30 +237,40 @@ input[type='checkbox']:checked:after{
   display: none;
 }
 
+/* bouton pour soumettre les choix */
 #soumettreChoix {
+/* couleur du bouton */
   background-color: #4CAF50;
-
   border: none;
   color: white;
+  border-color: black;
+/* size et position du bouton */
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+/* taille de la boite */
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
 }
 
+/* le boutton pour recommencer le jeux */
 #recommencerJeux {
+  /* couleur et apparence */
   appearance: none;
   background-color: transparent;
   border: 2px solid #1A1A1A;
+  /* le size du boutton */
   border-radius: 15px;
   box-sizing: border-box;
+  /* la couleur du boutton */
   color: #3B3B3B;
+  /* le display et le font family */
   cursor: pointer;
   display: inline-block;
   font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  /* ce qui a a faire avec le font et la position */
   font-size: 16px;
   font-weight: 600;
   line-height: normal;
@@ -277,23 +292,135 @@ input[type='checkbox']:checked:after{
 #recommencerJeux:disabled {
   pointer-events: none;
 }
-
+/* boutton pour recommencer le jeux */
 #recommencerJeux:hover {
+  /* couleur du bouton */
   color: #fff;
   background-color: #1A1A1A;
+  /* l'arriere plan du boutton et la transition */
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
-
+/* boutton pour recommencer le jeux */
 #recommencerJeux:active {
+  /* donne l'aire d'etre cool */
   box-shadow: none;
   transform: translateY(0);
 }
-
+/* CSS pour le text finale apres repondre au questions */
 #demontreTemp {
+  /* ce qui a a faire avec le font */
+  font-family: OCR A Std, monospace;
+  font-size: 75px;
+  /* la position de la boite */
   position: fixed;
-  left: 40%;
-  right: 40%;
+  left: 10%;
+  right: 10%;
   top: 20%;
-  color: orange;
+  /* la couleur de la boite */
+  color: rgb(0, 0, 0);
+}
+/* css pour la bonne ou mauvaise reponse */
+#pasBonneReponse {
+  /* position de la boite */
+  position: relative;
+  text-align: center;
+  top: 70%;
+  /* size de la boite */
+  width: 80%;
+  margin: 0 auto;
+  /* size du text */
+  font-size: 500%;
+}
+
+#montreNombreDeBonneReponse{
+  /* défileftni-t l
+  margin-top: 100px;a position de la boite pour qu'elle soit de bonne taille */
+  left: 5px;
+  top: 10px;
+  position: absolute;
+  /* change le text de la boite */
+  font: bold 20px Arial;
+  text-decoration: none;
+  /* change la couleur de la boite */
+  color: #000000;
+  /* les transitions et le padding de la boite */
+  padding: 12px 30px 12px 30px;
+  transition: transform .2s;
+  display: hidden;
+}
+
+#questionDiv{
+  position: fixed;
+  top: 17%;
+  left: 42%;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#quantity{
+  position: fixed;
+  top: 25%;
+  left: 40%;
+  font-size: 39px;
+  width: 100px;
+}
+
+#submit{
+  position: absolute;
+  top: 24.5%;
+  left: 47%;
+    /* couleur du bouton */
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  /* size et position du bouton */
+  padding: 15px 40px;
+  text-align: center;
+  border-color: black;
+  display: hidden;
+  /* taille de la boite */
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#cahierDeCharges{
+  position: absolute;
+  top: 10px;
+  margin-right: 80%;
+  background-color: lightblue;
+  font-size: 15px;
+  text-align: left;
+}
+#titre {
+position: relative;
+left: 0%;
+}
+#RetourAccueil2 {
+  /* définit la position de la boite pour qu'elle soit de bonne taille */
+  left: 0%;
+  position: relative;
+  bottom: 0%;
+  cursor: pointer;
+  /* change le text de la boite */
+  font: bold 20px Arial;
+  text-decoration: none;
+  /* change la couleur de la boite */
+  background-color: rgba(0, 209, 17, 0.568);
+  color: #000000;
+  /* les transitions et le padding de la boite */
+  padding: 15px 30px 15px 30px;
+  border: 2px solid black;
+}
+#PseudoCode {
+  text-align: left;
+}
+
+#MiseEssai{
+  text-align: left
 }
