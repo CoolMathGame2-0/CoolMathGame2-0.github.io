@@ -281,6 +281,16 @@ function demontreBouton() {
   document.getElementById("montreNombreDeBonneReponse").style.background = "rgba(39, 93, 243, 0.281)";
   document.getElementById("montreNombreDeBonneReponse").style.border = "2px solid black";
 }
+//quand tu rentre enter tu joue les fonction dans sumbit
+function enter(){
+  var input = document.getElementById("quantity");
+    input.addEventListener("keyup", function(event) {
+     if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("submit").click();
+    }
+  });
+}
 
 //tout le code HTML pour le premier body après le page titre
 function body1() {
@@ -294,11 +304,11 @@ function body1() {
   }
   if (cocherTout !== 4) {
     document.getElementById("delBody").innerHTML =
-      "<h1>À combien de questions voulez-vous répondre?</h1> " +
+      "<h1>À combien de questions voulez-vous répondre correctement?</h1> " +
       "<form>" +
-      "<input type='button' id='numDeQust5' onclick='body2(), nombreDeQuestion(5)' value='5'/>" +
-      "<input type='button' id='numDeQust10' onclick='body2(), nombreDeQuestion(10)' value='10'/>" +
-      "<input type='button' id='numDeQust15' onclick='body2(), nombreDeQuestion(15)' value='15'/>" +
+      "<input type='button' id='numDeQust5' onclick='body2(), nombreDeQuestion(5), enter()' value='5'/>" +
+      "<input type='button' id='numDeQust10' onclick='body2(), nombreDeQuestion(10), enter()' value='10'/>" +
+      "<input type='button' id='numDeQust15' onclick='body2(), nombreDeQuestion(15), enter()' value='15'/>" +
       "</form>" +
       "<a id='PagePrecedente' href='4-6.html'> Page précedente</a>"
   }
